@@ -15,6 +15,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+// import com.github.IdGenerator;
+
 @Entity
 @Table(name = "tbl_product")
 public class Product implements Serializable {
@@ -23,7 +25,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(generator = "custom-uuid")
-	@GenericGenerator(name = "custom-uuid", strategy = "com.demoapi.utils.IdGenerator")
+	@GenericGenerator(name = "custom-uuid", strategy = "com.github.IdGenerator")
     @Column(name = "product_id", insertable = false, updatable = false)
     private String productId;
     
@@ -43,6 +45,10 @@ public class Product implements Serializable {
 	
 	@ManyToOne
 	private Category category;
+
+	public String getProductId() {
+		return productId;
+	}
 
 	public void setProductId(String productId) {
 		this.productId = productId;
