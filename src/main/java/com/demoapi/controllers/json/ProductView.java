@@ -1,12 +1,10 @@
-package com.example.demoapi.controllers.json;
-
-import java.util.UUID;
+package com.demoapi.controllers.json;
 
 import javax.validation.constraints.NotNull;
 
 public class ProductView {
 	
-	private UUID productId;
+	private String productId;
 
     @NotNull(message = "Field 'productName' is required")
 	private String productName;
@@ -20,11 +18,11 @@ public class ProductView {
     @NotNull(message = "Field 'categoryId' is required")
 	private int categoryId;
 
-	public UUID getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 
-	public void setProductId(UUID productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 

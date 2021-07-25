@@ -1,8 +1,7 @@
-package com.example.demoapi.models;
+package com.demoapi.models;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.example.demoapi.models.Category;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -23,9 +22,10 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "custom-uuid")
+	@GenericGenerator(name = "custom-uuid", strategy = "com.demoapi.utils.IdGenerator")
     @Column(name = "product_id", insertable = false, updatable = false)
-    private UUID productId;
+    private String productId;
     
     @Column(name = "product_name", nullable = false, length = 50)
     private String productName;
@@ -44,11 +44,7 @@ public class Product implements Serializable {
 	@ManyToOne
 	private Category category;
 
-	public UUID getProductId() {
-		return productId;
-	}
-
-	public void setProductId(UUID productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 

@@ -1,4 +1,4 @@
-package com.example.demoapi.dto;
+package com.demoapi.dto;
 
 public class SearchData {
 	private String query;

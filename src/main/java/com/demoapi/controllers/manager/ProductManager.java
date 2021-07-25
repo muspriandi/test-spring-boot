@@ -1,15 +1,14 @@
-package com.example.demoapi.controllers.manager;
+package com.demoapi.controllers.manager;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.example.demoapi.Repositories.ProductRepo;
-import com.example.demoapi.models.Product;
+import com.demoapi.Repositories.ProductRepo;
+import com.demoapi.models.Product;
 
 @Service
 public class ProductManager {
@@ -25,7 +24,7 @@ public class ProductManager {
 		return productRepo.save(product);
 	}
 	
-	public Product findById(UUID id) {
+	public Product findById(String id) {
 		
 		Optional<Product> product = productRepo.findById(id);
 		if (product.isPresent()) {
@@ -35,7 +34,7 @@ public class ProductManager {
 		return null;
 	}
 	
-	public void remove(UUID id) {
+	public void remove(String id) {
 		Product product = findById(id);
 		
 		if (product != null) {

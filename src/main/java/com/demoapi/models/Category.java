@@ -1,4 +1,4 @@
-package com.example.demoapi.models;
+package com.demoapi.models;
 
 import java.io.Serializable;
 

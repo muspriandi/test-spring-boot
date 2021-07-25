@@ -1,4 +1,4 @@
-package com.example.demoapi.dto;
+package com.demoapi.dto;
 
 import java.util.ArrayList;
 import java.util.List;

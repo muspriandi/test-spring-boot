@@ -1,4 +1,4 @@
-package com.example.demoapi.controllers.manager;
+package com.demoapi.controllers.manager;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demoapi.Repositories.CategoryRepo;
-import com.example.demoapi.models.Category;
+import com.demoapi.Repositories.CategoryRepo;
+import com.demoapi.models.Category;
 
 @Service
 public class CategoryManager {
